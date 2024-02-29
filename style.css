@@ -1,0 +1,220 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    list-style: none;
+        -webkit-tap-highlight-color: transparent;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+}
+
+img, svg {
+    width: 100%;
+    object-fit: cover;
+}
+
+body {
+    background: var(--background);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    font-family: 'Poppins', sans-serif;
+    color: #fff;
+    position: relative;
+
+}
+
+:root[data-theme="light"] {
+    --background: #dedede;
+    --text-color: #000000;
+    --background-white: #c0c0c0;
+    --black: #151515;
+    --gray: #2e2e2e;
+    --hover: linear-gradient(90deg, #FF3D33 5%, #00F0FF 95.6%);
+    --color-icon: #202020;
+
+}
+
+:root[data-theme="dark"] {
+    --background: #222;
+    --text-color: #fff;
+    --background-white: #fff;
+    --black: #000;
+    --gray: #2e2e2e;
+    --hover: linear-gradient(90deg, #FF3D33 5%, #00F0FF 95.6%);
+    --color-icon: #202020;
+}
+
+/* ----------------------------- */
+
+.content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 30px;
+    width: 600px;
+    padding: 10px;
+    position: relative;
+}
+
+.profile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.profile .profile-picture {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    overflow: hidden;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+
+
+.profile h1 {
+    margin-top: 24px;
+    font-weight: 500;
+    font-size: 20px;
+    color: var(--text-color);
+}
+
+.profile p {
+    font-weight: 400;
+    font-size: 20px;
+    color: var(--text-color);
+    opacity: 0.7;
+}
+
+.links-pages{
+    width: 100%;
+}
+
+.links-pages ul {
+    display: flex;
+    flex-direction: column;
+    margin-top: 43px;
+    gap: 23px;
+}
+
+/* animação com efeito hover com linear gradiente de fundo */
+.links-pages ul li {
+    background-color: var(--background-white);
+    border-radius: 10px;
+    padding: 20px;
+    width: 100%;
+    text-align: center;
+    cursor: pointer;
+    position: relative;
+}
+
+.links-pages ul li::before {
+    content: '';
+    position: absolute;
+    top: -5px;
+    left: -5px;
+    right: -5px;
+    bottom: -5px;
+    z-index: -1;
+    background: var(--hover);
+    opacity: 0;
+    transition: 0.3s ease-in-out;
+}
+
+.links-pages ul li:hover::before {
+    filter: blur(13px);
+    opacity: 1;
+}
+
+
+/* botão change color */
+.mode-color {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: var(--background-white);
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+
+}
+
+.mode-color i {
+    color: var(--color-icon);
+    z-index: 1000;
+    font-size: 20px;
+    transition: 0.4s ease;
+    padding: 25px;
+}
+
+.mode-color i:hover {
+    transform: rotate(-50deg);
+    color: var(--gray);
+}
+
+
+/* --------------- */
+
+.links-pages ul li a {
+    font-size: 16px;
+    color: var(--black);
+    font-weight: 400;
+    color: var(--black);
+    width: 100%;
+    display: inline-block;
+}
+
+.links-social-media {
+    margin: 50px;
+}
+
+.links-social-media ul {
+    display: flex;
+    gap: 40px;
+}
+
+.links-social-media i{
+    color: var(--text-color);
+    font-size: 30px;
+    transition: 0.3s ease;
+}
+
+
+/* animação botões social media */
+.links-social-media i:hover {
+    transform: scale(1.2);
+}
+
+
+
+/* ------------------------ */
+
+html::-webkit-scrollbar {
+    width: 0.7rem;
+    max-height: 10vh;
+}
+
+html::-webkit-scrollbar-track {
+    background: #212121;
+}
+
+html::-webkit-scrollbar-thumb {
+    background: #535353;
+    border-radius: 10px;
+}
+
+/* -------------------------------------- MOBILE */
+
+@media screen and (max-width: 768px) {
+    .links-pages ul li a {
+        padding: 0px;
+    }
+}
